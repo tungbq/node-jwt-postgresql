@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+require('dotenv').config();
+
 let corsOptions = {
 	origin: 'http://localhost:8081',
 };
@@ -36,7 +38,7 @@ function initialize() {
 		name: 'moderator',
 	});
 	Role.create({
-		id: 1,
+		id: 3,
 		name: 'admin',
 	});
 }

@@ -1,0 +1,19 @@
+# Reference: https://github.com/khezen/compose-postgres/blob/master/docker-compose.yml
+version: '3.1'
+
+services:
+  postgres:
+    container_name: postgres_node_auth_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - '5412:5432'
+    restart: unless-stopped
+
+volumes:
+    postgres:
