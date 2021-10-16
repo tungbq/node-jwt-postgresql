@@ -19,6 +19,14 @@ module.exports = function (app) {
 		controller.moderatorBoard
 	);
 
+	app.get('/api/test/user', [authJWT.verifyToken], controller.userBoard);
+
+	app.get(
+		'/api/test/mod',
+		[authJWT.verifyToken, authJWT.isModerator],
+		controller.moderatorBoard
+	);
+
 	app.get(
 		'/api/test/admin',
 		[authJWT.verifyToken, authJWT.isAdmin],
