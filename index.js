@@ -48,6 +48,10 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 1995;
 
+// Bring up all the routes
+require('./app/routes/auth')(app);
+require('./app/routes/user')(app);
+
 app.listen(PORT, () => {
 	console.log(`Server is up and running on port ${PORT}`);
 });
