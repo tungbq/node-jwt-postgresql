@@ -21,11 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require('./app/models');
 const Role = db.role;
 
-// Only force for dev environment
-db.sequelize.sync({ force: true }).then(() => {
-	console.log('Drop and sync the DB');
-	initialize();
-});
+// // Only force for dev environment
+// db.sequelize.sync({ force: true }).then(() => {
+// 	console.log('Drop and sync the DB');
+// 	initialize();
+// });
 
 // Feed DB data
 function initialize() {
@@ -57,3 +57,5 @@ require('./app/routes/user')(app);
 app.listen(PORT, () => {
 	console.log(`Server is up and running on port ${PORT}`);
 });
+
+module.exports = app; // for testing
